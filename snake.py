@@ -3,7 +3,7 @@ import numpy as np
 
 snake_OG = [[0,2], [0,1], [0,0], [1,0], [1,1], [1,2]]
 
-cont = 1
+
 
 def move_snake(snake,direccion):
 
