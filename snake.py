@@ -1,13 +1,8 @@
-from itertools import product
 import numpy as np
 
 
-def move_snake(snake,direccion):
+def move_snake(snake, direccion):
 
-    snake =  [[2,2], [3,2], [3,1], [3,0], [2,0], [1,0], [0,0]]
-    snake =  [[0,2], [0,1], [0,0], [1,0], [1,1], [1,2]]
-    snake =  [[5,5], [5,4], [4,4], [4,5]]
- 
 
     for x in direccion:
         if(x == 'L'):
@@ -33,7 +28,7 @@ def is_valid(move, board, snake):
     if(any(x<0 for x in move)):
         return False
    
-    elif(any(x<1 for x in np.subtract(board,move))):
+    elif(any(x<1 for x in np.subtract(board, move))):
         return False
     
     elif(arreq_in_list(move, snake[:-1])):   
@@ -42,7 +37,7 @@ def is_valid(move, board, snake):
     else:
         return True
      
-def valid_routes(board,snake, depth , tested_path = '', routes = []):
+def valid_routes(board, snake, depth , tested_path = '', routes = []):
 
     # print(snake)
     
@@ -63,34 +58,34 @@ def valid_routes(board,snake, depth , tested_path = '', routes = []):
     D = np.add(snake[0], [0,1])       
     
     
-    if(is_valid(L,board,snake)):
+    if(is_valid(L, board, snake)):
 
         new_path = tested_path + 'L' 
-        new_snake = move_snake(snake, new_path)
+        new_snake = move_snake(snake, 'L')
         
         tested_routes = valid_routes(board, new_snake, depth, new_path, tested_routes)
 
        
-    if(is_valid(R,board,snake)):
+    if(is_valid(R, board, snake)):
 
         new_path = tested_path + 'R'
-        new_snake = move_snake(snake, new_path)
+        new_snake = move_snake(snake, 'R')
         
         tested_routes = valid_routes(board, new_snake, depth, new_path, tested_routes)
         
     
-    if(is_valid(U,board,snake)):
+    if(is_valid(U, board, snake)):
 
         new_path = tested_path + 'U'
-        new_snake = move_snake(snake, new_path)
+        new_snake = move_snake(snake, 'U')
         
         tested_routes = valid_routes(board, new_snake, depth, new_path, tested_routes)
     
     
-    if(is_valid(D,board,snake) ):
+    if(is_valid(D, board, snake) ):
 
         new_path = tested_path + 'D'
-        new_snake = move_snake(snake, new_path)
+        new_snake = move_snake(snake, 'D')
         
         tested_routes = valid_routes(board, new_snake, depth, new_path, tested_routes)
     
