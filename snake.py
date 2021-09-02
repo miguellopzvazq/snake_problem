@@ -90,22 +90,3 @@ def valid_routes(board, snake, depth , tested_path = '', routes = []):
 def count_valid_routes(board, snake, depth):
     return len(valid_routes(board, snake, depth))
     
-
-# #Test 1:
-board =  [4, 3]
-snake =  [[2,2], [3,2], [3,1], [3,0], [2,0], [1,0], [0,0]]
-depth =  3
-print('\nTest1 - Expected result: 7      Tested result: '+ str(count_valid_routes(board, snake, depth)))
-
-    
-#Test 2:
-board =  [2, 3]
-snake =  [[0,2], [0,1], [0,0], [1,0], [1,1], [1,2]]
-depth =  10
-print('\nTest2 - Expected result: 1      Tested result: '+ str(count_valid_routes(board, snake, depth)))
-
-#Test 3:
-board =  [10, 10]
-snake =  [[5,5], [5,4], [4,4], [4,5]]
-depth =  4
-print('\nTest3 - Expected result: 81     Tested result: '+ str(count_valid_routes(board, snake, depth)))
