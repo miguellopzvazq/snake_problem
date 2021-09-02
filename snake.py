@@ -3,7 +3,6 @@ import numpy as np
 
 def move_snake(snake, direccion):
 
-
     for x in direccion:
         if(x == 'L'):
             move = np.add(snake[0], [-1,0])
@@ -39,8 +38,6 @@ def is_valid(move, board, snake):
      
 def valid_routes(board, snake, depth , tested_path = '', routes = []):
 
-    # print(snake)
-    
     tested_routes = routes
     new_path = ''
 
@@ -48,9 +45,7 @@ def valid_routes(board, snake, depth , tested_path = '', routes = []):
         new_routes = routes + [tested_path]
         
         return (new_routes)
-        
- 
-        
+             
         
     L = np.add(snake[0], [-1,0])
     R = np.add(snake[0], [1,0])
@@ -114,5 +109,3 @@ board =  [10, 10]
 snake =  [[5,5], [5,4], [4,4], [4,5]]
 depth =  4
 print('\nTest3 - Expected result: 81     Tested result: '+ str(count_valid_routes(board, snake, depth)))
-
-
